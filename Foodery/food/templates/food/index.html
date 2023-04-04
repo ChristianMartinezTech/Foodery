@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>index file</h1>
+
+    <h1>Our Restaurants</h1>
+    <p>
+      {% for restaurant in restaurant_list %}
+        {{ restaurant.name }} -- {{ restaurant.type }}
+      {% endfor %}
+    </p>
+
+    <h1>Our Plates</h1>
+    <p>
+      {% for plate in plates_list %}
+        {{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
+      {% endfor %}
+    </p>
   </body>
 </html>
