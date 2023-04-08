@@ -9,18 +9,28 @@
   </head>
   <body>
 
-    <h1>Our Restaurants</h1>
-    <p>
-      {% for restaurant in restaurant_list %}
-        {{ restaurant.name }} -- {{ restaurant.type }}
-      {% endfor %}
-    </p>
+    <h1>
+      Our Restaurants
+    </h1> 
+    {% for restaurant in restaurant_list %}
+    <ul>
+      <li>
+        <a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }} -- {{ restaurant.type }}
+      </li>
+    </ul>
+    {% endfor %}
 
-    <h1>Our Plates</h1>
-    <p>
+
+    <h2>
+      Our Plates
+    </h2>
       {% for plate in plates_list %}
-        {{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
-      {% endfor %}
-    </p>
+      <ul>
+        <li>
+          <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}">{{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
+      </li>
+    </ul>
+     {% endfor %}
+
   </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurant Detail</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <h1>
+      {{ restaurant_detail.name }}
+    </h1>
+    <h2>
+      {{ restaurant_detail.type}}
+    </h2>
+
+    {% for plate in plates_list %}
+      <ul>
+        <li>
+          {{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
+        </li>
+      </ul>
+      {% endfor %}
+      </li>
+    </ul>
+  </body>
+</html>
