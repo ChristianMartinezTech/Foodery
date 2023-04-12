@@ -29,6 +29,16 @@ def hello(request):
     return HttpResponse("Hi there! Thank you for using Foodery. :)") # Way to not use context
 
 
+# Restaurants View
+def restaurants(request):
+    restaurants = Restaurant.objects.all()
+    context = {
+        'restaurants': restaurants,
+    }
+
+    return render(request, 'food/restaurants.html', context)
+
+
 # Restaurant detail view
 def restaurant_detail(request, restaurant_id):
 
