@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'food/base.html' %}
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Restaurants</title>
-    <link rel="stylesheet" href="style.css">
+    <title>{{ restaurant_detail.name }}</title>
   </head>
   <body>
-
+    {% block body %}
     <h1>
       {{ restaurant_detail.name }}
     </h1>
@@ -25,5 +20,6 @@
       {% endfor %}
       </li>
     </ul>
+    {% endblock %}
   </body>
 </html>
