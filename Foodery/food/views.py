@@ -39,6 +39,16 @@ def restaurants(request):
     return render(request, 'food/restaurants.html', context)
 
 
+# Plates View
+def plates(request):
+    plates = Plate.objects.all()
+    context = {
+        'plates': plates,
+    }
+
+    return render(request, 'food/plates.html', context)
+
+
 # Restaurant detail view
 def restaurant_detail(request, restaurant_id):
 
