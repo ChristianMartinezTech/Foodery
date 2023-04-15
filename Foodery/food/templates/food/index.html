@@ -8,24 +8,54 @@
 
     <h2>
       <a href="{% url 'food:restaurants' %}">Our Restaurants
-    </h2> 
+    </h2>
+
     {% for restaurant in restaurant_list %}
-    <ul>
-      <li>
-        <a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }} -- {{ restaurant.type }}
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <img class="card" height="150px" src="{{ restaurant.image }}"/>
+      </div>
+
+      <div class="col-md-4">
+        <h3>
+          <a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }}
+        </h3>
+        <h5>
+          {{ restaurant.type }}
+        </h5>
+      </div>
+
+      <div class="col-md-2">
+      </div>
     {% endfor %}
 
     <h2>
       <a href="{% url 'food:plates' %}">Our Plates
     </h2>
-      {% for plate in plates_list %}
-      <ul>
-        <li>
-          <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}">{{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
-      </li>
-    </ul>
+
+    {% for plate in plates_list %}
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <img class="card" height="150px" src="{{ plate.image }}"/>
+      </div>
+
+      <div class="col-md-4">
+        <h3>
+          <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}"> {{ plate.name }}
+        </h3>
+        <h5>
+          {{ plate.restaurant }}
+        </h5>
+        <h7>
+          {{ plate.price }} 
+        </h7>
+        <p>
+          {{ plate.description }}
+        </p>
+      </div>
+
+      <div class="col-md-2">
+      </div>
      {% endfor %}
 
     {% endblock %}
