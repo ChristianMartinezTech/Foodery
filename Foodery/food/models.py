@@ -8,7 +8,7 @@ class Restaurant(models.Model):
     """A model for Each Restaurant in Foodery"""
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=150) # Colombian, Itallian, French, Japanesse
-    image = models.CharField(max_length=500, default="food/static/food/images/restaurant_placeholder.avif")
+    image = models.CharField(max_length=500, default="https://cdn0.iconfinder.com/data/icons/map-and-location-16/512/restaurant-cup-food-location-lunch-map-restaurant-512.png")
     #picture = models.ImageField()
     
     # Restaurant String method
@@ -22,7 +22,7 @@ class Plate(models.Model):
     description = models.CharField(max_length=250)
     price = models.IntegerField(default=0)
     available = models.BooleanField(default=False)
-    image = models.CharField(max_length=500, default="food/static/food/images/food_placeholder.png")
+    image = models.CharField(max_length=500, default="https://goodviewvictoria.com/img/placeholders/comfort_food_placeholder.png")
 
     # Plate String method
     def __str__(self):
