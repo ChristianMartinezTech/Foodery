@@ -13,7 +13,7 @@
     {% for restaurant in restaurant_list %}
     <div class="row">
       <div class="col-md-3 offset-md-2">
-        <img class="card" height="150px" src="{{ restaurant.image }}"/>
+        <img class="card" src="{{ restaurant.image }}" height="150" width="150"/>
       </div>
 
       <div class="col-md-4">
@@ -24,9 +24,7 @@
           {{ restaurant.type }}
         </h5>
       </div>
-
-      <div class="col-md-2">
-      </div>
+    </div>
     {% endfor %}
 
     <h2>
@@ -36,7 +34,7 @@
     {% for plate in plates_list %}
     <div class="row">
       <div class="col-md-3 offset-md-2">
-        <img class="card" height="150px" src="{{ plate.image }}"/>
+        <img class="card" src="{{ plate.image }}" height="150" width="150"/>
       </div>
 
       <div class="col-md-4">
@@ -53,11 +51,8 @@
           {{ plate.description }}
         </p>
       </div>
-
-      <div class="col-md-2">
-      </div>
+    </div>
      {% endfor %}
-
     {% endblock %}
   </body>
 

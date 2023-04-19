@@ -7,13 +7,28 @@
     <h1>
         Our Plates
     </h1> 
-      {% for plate in plates %}
-      <ul>
-        <li>
-            <a href="{% url 'food:plates' %}">{{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
-        </li>
-      </ul>
-      {% endfor %}
+    {% for plate in plates %}
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <img class="card" src="{{ plate.image }}" height="150" width="150"/>
+      </div>
+
+      <div class="col-md-4">
+        <h3>
+          <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}"> {{ plate.name }}
+        </h3>
+        <h5>
+          {{ plate.restaurant }}
+        </h5>
+        <h7>
+          {{ plate.price }} 
+        </h7>
+        <p>
+          {{ plate.description }}
+        </p>
+      </div>
+    </div>
+     {% endfor %}
       {% endblock %}
   </body>
 </html>
