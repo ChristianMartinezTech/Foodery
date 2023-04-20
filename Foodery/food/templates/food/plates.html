@@ -5,7 +5,7 @@
   <body>
     {% block body %}
     <h1>
-      <a href="{% url 'food:plates' %}">Our Plates
+      <a href="{% url 'food:plates' %}">Our Plates</a>
     </h1>
 
     {% for plate in plates %}
@@ -15,7 +15,7 @@
       </div>
 
       <div class="col-md-4">
-        <h3><a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}"> {{ plate.name }}</h3>
+        <h3><a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}"> {{ plate.name }}</a></h3>
         <h5>{{ plate.restaurant }}</h5>
         <h7>{{ plate.price }} </h7>
         <p>{{ plate.description }}</p>
