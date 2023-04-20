@@ -5,8 +5,9 @@
   <body>
     {% block body %}
     <h1>
-        Our Plates
-    </h1> 
+      <a href="{% url 'food:plates' %}">Our Plates
+    </h1>
+
     {% for plate in plates %}
     <div class="row">
       <div class="col-md-3 offset-md-2">
@@ -14,21 +15,11 @@
       </div>
 
       <div class="col-md-4">
-        <h3>
-          <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}"> {{ plate.name }}
-        </h3>
-        <h5>
-          {{ plate.restaurant }}
-        </h5>
-        <h7>
-          {{ plate.price }} 
-        </h7>
-        <p>
-          {{ plate.description }}
-        </p>
+        <h3><a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}"> {{ plate.name }}</h3>
+        <h5>{{ plate.restaurant }}</h5>
+        <h7>{{ plate.price }} </h7>
+        <p>{{ plate.description }}</p>
       </div>
     </div>
-     {% endfor %}
-      {% endblock %}
-  </body>
-</html>
+    {% endfor %}
+    {% endblock %}

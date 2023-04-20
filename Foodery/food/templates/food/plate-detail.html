@@ -3,18 +3,23 @@
     <title>{{ plate_detail.name }}</title>
     <link rel="stylesheet" href="style.css">
   </head>
+  
   <body>
     {% block body %}
     <h1>
       {{ plate_detail.name }}
     </h1>
-      <ul>
-        <li>
-          {{ plate_detail.restaurant }} -- {{ plate_detail.description }} -- {{ plate_detail.price }}
-        </li>
-      </ul>
-      </li>
-    </ul>
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <img class="card" src="{{ plate_detail.image }}" height="150" width="150"/>
+      </div>
+
+      <div class="col-md-4">
+        <h3>{{ plate_detail.name }}</h3>
+        <h5><a href="{% url 'food:restaurant_detail' plate_detail.restaurant.id %}">{{ plate_detail.restaurant.name }}</a></h5>
+        <h7>${{ plate_detail.price }}</h7>
+        <p>{{ plate_detail.description }}</p>
+      </div>
+    </div>
     {% endblock %}
-  </body>
-</html>

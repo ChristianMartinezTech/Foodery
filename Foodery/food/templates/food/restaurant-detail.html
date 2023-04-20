@@ -2,24 +2,27 @@
   <head>
     <title>{{ restaurant_detail.name }}</title>
   </head>
+  
   <body>
     {% block body %}
-    <h1>
-      {{ restaurant_detail.name }}
-    </h1>
-    <h2>
-      {{ restaurant_detail.type}}
-    </h2>
+    
+    <div class="row">
+      <div class="col-md-3">
+        <img class="card" src="{{ restaurant_detail.image }}" height="250" width="350"/>
+        <h1><a href="{% url 'food:restaurant_detail' restaurant_detail.id %}">{{ restaurant_detail.name }}</h1>
+        <h5>{{ restaurant_detail.type }}</h5>
+      </div>
+    </div>
 
     {% for plate in plates_list %}
-      <ul>
-        <li>
-          {{ plate.restaurant }} -- {{ plate.name }} -- {{ plate.description }} -- {{ plate.price }}
-        </li>
-      </ul>
-      {% endfor %}
-      </li>
-    </ul>
+    <div class="row">
+      <div class="offset-md-2">
+        <img class="card" src="{{ plate.image }}" height="150" width="150"/>
+        <h3>{{ plate_detail.name }}</h3>
+        <h5><a href="{% url 'food:restaurant_detail' plate.restaurant.id %}">{{ plate.name }}</a></h5>
+        <h7>${{ plate.price }}</h7>
+        <p>{{ plate.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
     {% endblock %}
-  </body>
-</html>

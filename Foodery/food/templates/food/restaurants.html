@@ -2,29 +2,24 @@
   <head>
     <title>Restaurants</title>
   </head>
+
   <body>
     {% block body %}
-    <h1>
-        Our Restaurants
+    <h1> 
+      <a href="{% url 'food:restaurants' %}">Our Restaurants
     </h1>
 
-      {% for restaurant in restaurants %}
-      <div class="row">
+    {% for restaurant in restaurants %}
 
+      <div class="row">
         <div class="col-md-3 offset-md-2">
           <img class="card" src="{{ restaurant.image }}" height="150" width="150"/>
         </div>
   
         <div class="col-md-4">
-          <h3>
-            <a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }}
-          </h3>
-          <h5>
-            {{ restaurant.type }}
-          </h5>
+          <h3><a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }}</h3>
+          <h5>{{ restaurant.type }}</h5>
         </div>
       </div>
       {% endfor %}
       {% endblock %}
-  </body>
-</html>
