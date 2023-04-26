@@ -20,6 +20,10 @@
           <h3><a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }}</a></h3>
           <h5>{{ restaurant.type }}</h5>
         </div>
+
+        <div class="col-md-2">
+          <a class="btn btn-sucess" href="{% url 'food:restaurant_detail' restaurant.id %}">Details</a>
+        </div>
       </div>
       {% endfor %}
       {% endblock %}

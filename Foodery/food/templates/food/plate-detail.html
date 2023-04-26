@@ -5,18 +5,28 @@
   </head>
   
   <body>
+    
     {% block body %}
-    <h1>
-      {{ plate_detail.name }}
-    </h1>
-
     <div class="row">
-      <div class="col-md-3 offset-md-2">
-        <img class="card" src="{{ plate_detail.image }}" height="300" width="450"/>
+      <div class="offset-md-2">
+        <img class="card" src="{{ plate_detail.image }}" height="450" width="600"/>
+      </div>
+
+      <div class="col-md-4 offset-md-2">
         <h3>{{ plate_detail.name }}</h3>
-        <h5><a href="{% url 'food:restaurant_detail' plate_detail.restaurant.id %}">{{ plate_detail.restaurant.name }}</a></h5>
+
+        <h5>
+          <a href="{% url 'food:restaurant_detail' plate_detail.restaurant.id %}">
+            {{ plate_detail.restaurant.name }}
+          </a>
+        </h5>
+
         <h7>${{ plate_detail.price }}</h7>
         <p>{{ plate_detail.description }}</p>
+      </div>
+
+      <div class="col-md-2 offset-md-2">
+        <a class="btn btn-sucess" href="">Add to Cart</a>
       </div>
     </div>
     {% endblock %}
