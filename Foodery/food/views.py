@@ -79,3 +79,14 @@ def plate_detail(request, plate_id, restaurant_id):
 
     return render(request, 'food/plate-detail.html', context)
 
+
+# Cart detail view
+def cart(request):
+    context = {}
+    return render(request, 'food/cart.html', context)
+
+
+# Account detail view
+def account(request):
+    context = {}
+    return render(request, 'food/account.html', context)

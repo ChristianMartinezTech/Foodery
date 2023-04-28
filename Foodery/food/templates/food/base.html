@@ -15,8 +15,8 @@
       <div class="navbar">
         <a class="nav-item nav-link " href="{% url 'food:restaurants' %}">Restaurants</a>
         <a class="nav-item nav-link" href="{% url 'food:plates' %}">Plates</a>
-        <a class="nav-item nav-link" href="#">Cart</a>
-        <a class="nav-item nav-link" href="#">Account</a>
+        <a class="nav-item nav-link" href="{% url 'food:cart' %}">Cart</a>
+        <a class="nav-item nav-link" href="{% url 'food:account' %}">Account</a>
         <a class="nav-item nav-link" href="#">About us</a>
       </div>
     </nav>
@@ -70,6 +70,9 @@
           <p>
             <a href="{% url 'food:plates' %}" class="text-reset">Plates</a>
           </p>
+          <p>
+            <a href="{% url 'food:cart' %}" class="text-reset">Cart</a>
+          </p>
         </div>
 
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -77,7 +80,7 @@
             Useful links
           </h6>
           <p>
-            <a class="nav-item nav-link" href="#">Account</a>
+            <a class="nav-item nav-link" href="{% url 'food:account' %}">Account</a>
           </p>
           <p>
             <a class="nav-item nav-link" href="#">About us</a>
