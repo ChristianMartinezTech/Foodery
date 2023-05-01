@@ -1,10 +1,11 @@
 """File to have all the food App Views  (functions)"""
 
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import Restaurant, Plate
+from .forms import PlateForm
 
 
 # Index View
@@ -82,7 +83,16 @@ def plate_detail(request, plate_id, restaurant_id):
 
 # Cart detail view
 def cart(request):
-    context = {}
+    form = PlateForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('food/index.html')
+    
+    context = {
+        'form': form,
+    }
+
     return render(request, 'food/cart.html', context)
 
 

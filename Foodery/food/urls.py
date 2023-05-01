@@ -15,6 +15,6 @@ urlpatterns = [
     path('plates/', views.plates, name='plates'),
     path('restaurant/<int:restaurant_id>/', views.restaurant_detail, name='restaurant_detail'),
     path('restaurant/<int:restaurant_id>/plate/<int:plate_id>/', views.plate_detail, name='plate_detail'),
-    path('cart', views.cart, name="cart"),
-    path('account', views.account, name="account"),
+    path('cart/', views.cart, name="cart"),
+    path('account/', views.account, name="account"),
 ]
