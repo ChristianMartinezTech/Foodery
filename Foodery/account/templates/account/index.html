@@ -1,0 +1,61 @@
+{% extends 'food/base.html' %}
+  <head>
+    <title>Foodery</title>
+  </head>
+
+  <body>
+    {% block body %}
+
+    <h2>
+      <a href="{% url 'food:restaurants' %}">Our Restaurants</a>
+    </h2>
+
+    {% for restaurant in restaurant_list %}
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <a href="{% url 'food:restaurant_detail' restaurant.id %}">
+          <img class="card" src="{{ restaurant.image }}" height="150" width="150"/>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <h3><a href="{% url 'food:restaurant_detail' restaurant.id %}">{{ restaurant.name }}</h3></a>
+        <h5>{{ restaurant.type }}</h5>
+      </div>
+
+      <div class="col-md-2">
+        <a class="btn btn-sucess" href="{% url 'food:restaurant_detail' restaurant.id %}">Details</a>
+      </div>
+    </div>
+    {% endfor %}
+
+    <h1>
+      <a href="{% url 'food:plates' %}">Our Plates</a>
+    </h1>
+
+    {% for plate in plates_list %}
+
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}">
+          <img class="card" src="{{ plate.image }}" height="150" width="150"/>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <h3>
+          <a href="{% url 'food:plate_detail' plate.restaurant.id plate.id %}">{{ plate.name }}</a>
+        </h3>
+        <h5>{{ plate.restaurant }}</h5>
+        <h7>${{ plate.price }} </h7>
+        <p>{{ plate.description }}</p>
+      </div>
+
+      <div class="col-md-2">
+        <a class="btn btn-sucess" href="">Add to Cart</a>
+      </div>
+    </div>
+     {% endfor %}
+    {% endblock %}
+ 

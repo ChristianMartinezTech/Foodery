@@ -1,11 +1,11 @@
-"""Food App Model/Database file"""
+"""Food App models"""
 
 
 from django.db import models
 
 
 class Restaurant(models.Model):
-    """A model for Each Restaurant in Foodery"""
+    """Model for Each Restaurant in Foodery"""
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=150) # Colombian, Itallian, French, Japanesse
     image = models.CharField(max_length=500, default="https://cdn0.iconfinder.com/data/icons/map-and-location-16/512/restaurant-cup-food-location-lunch-map-restaurant-512.png")
@@ -16,12 +16,11 @@ class Restaurant(models.Model):
         return "%s - %s" % (self.name, self.type)
 
 class Plate(models.Model):
-    """A model for plates"""
+    """Model for plates"""
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     description = models.CharField(max_length=250)
     price = models.IntegerField(default=0)
-    available = models.BooleanField(default=False)
     image = models.CharField(max_length=500, default="https://goodviewvictoria.com/img/placeholders/comfort_food_placeholder.png")
 
     # Plate String method
